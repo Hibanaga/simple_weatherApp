@@ -14,3 +14,78 @@ html {
 body {
   background-color: #333;
 }
+
+.mainInput {
+  display: block;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  margin-left: 3.5rem;
+  margin-right: auto;
+  padding: 1rem;
+  background-color: rgb(131, 131, 131);
+  color: #2f2f2f;
+  font-size: 2.5rem;
+  min-width: 40rem;
+}
+
+.mainCalculator {
+  margin: 0 auto;
+  width: 28rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+button {
+  margin: 0 auto;
+  text-align: center;
+  width: 8rem;
+  height: 4rem;
+  font-size: 2rem;
+  background-color: #666;
+
+  outline: none;
+  border: 1px solid #bbb;
+  cursor: pointer;
+}
+
+.buttonsCalculator {
+  margin-left: 4rem;
+  width: 28rem;
+}
+
+.buttons_block {
+  display: flex;
+  align-items: center;
+}
+
+.btn_change {
+  width: 31rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btn_value {
+  margin-top: 1rem;
+}
+
+.btn_value_zero {
+  display: block;
+  margin-left: 8.31rem;
+}
+
+.buttons_operations {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn_operation {
+  margin-top: 1rem;
+  background-color: #bbb;
+  border: 1px solid #666;
+}
+
+.btn_operation:first-child {
+  margin-top: 0;
+}
