@@ -3,31 +3,41 @@
 
     let variable="";
 
+
+   
+
+
     document.addEventListener("keydown", function(event) {
-        // event.preventDefault();
-       
-    
+        event.preventDefault();
         let htmlnum = "";
     
         htmlnum += `<h1 class="mainKey">${event.which}</h1>`
         // document.body.innerHTML = html;
+
+        // console.log(event.key);
         
         variable = `<h1 class="mainKey">${event.which}</h1>`
         document.querySelector("main").innerHTML = htmlnum;
         
         let navInfo = "";
     
-        navInfo += `<button class="btn_copy" onclick="copyToClipBoard(${event.key})"><h2 class="h2_eventAbout">event.key</h2> <span class="spanInfo">${event.key !== " " ? event.key: event.code}</span> </button>`
-        navInfo += `<button class="btn_copy" onclick="copyToClipBoard(${event.location})"><h2 class="h2_eventAbout">event.location</h2> <span class="spanInfo">${event.location} <p class="general_p">(General keys)</p> </span></button>`
-        navInfo += `<button class="btn_copy" onclick="copyToClipBoard(${event.which})"><h2 class="h2_eventAbout">event.which</h2> <span class="spanInfo">${event.which}</span></button>`
-        navInfo += `<button class="btn_copy" onclick="copyToClipBoard(${event.code})"><h2 class="h2_eventAbout">event.code</h2> <span class="spanInfo">${event.code}</span></button>`
+        navInfo += `<button class="btn_copy" id="btn_copyValueKey" value="${event.key}" onclick="copyToClipBoardKey()"><h2 class="h2_eventAbout">event.key</h2> <span class="spanInfo" id="span_value">${event.key !== " " ? event.key: event.code}</span> </button>`
+        navInfo += `<button class="btn_copy" id="btn_copyValue" value="${event.location}" onclick="copyToClipBoard(${event.location})"><h2 class="h2_eventAbout">event.location</h2> <span class="spanInfo" id="span_value">${event.location} <p class="general_p">(General keys)</p> </span></button>`
+        navInfo += `<button class="btn_copy" id="btn_copyValue" value="${event.which}" onclick="copyToClipBoard(${event.which})"><h2 class="h2_eventAbout">event.which</h2> <span class="spanInfo" id="span_value">${event.which}</span></button>`
+        navInfo += `<button class="btn_copy" id="btn_copyValueCode" value="${event.code}" onclick="copyToClipBoardCode()"><h2 class="h2_eventAbout">event.code</h2> <span class="spanInfo" id="span_value">${event.code}</span></button>`
+
+  
     
         
         document.querySelector("nav").innerHTML = navInfo;
 
-        document.title.innerHTML = variable;
+      
       });
 
+
+    //   ? why i doesn't copy to value event.key and event.code
+
+    
  
   document.querySelector("#btnShowTable").onclick = ()=> {
 
@@ -62,6 +72,57 @@
 
     toggleValue = !toggleValue;
   }
+
+function copyToClipBoard (value) {
+    // console.log(value);
+    realizeCopy(value)
+ }
+
+ function copyToClipBoardKey() {
+    let value = document.querySelector("#btn_copyValueKey").value;
+     // console.log(value);
+    realizeCopy(value);
+ }
+
+function copyToClipBoardCode() {
+    let value = document.querySelector("#btn_copyValueCode").value;
+    // console.log(value);
+    realizeCopy(value);
+}
+
+
+function realizeCopy(str) {
+    let dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+
+    dummy.value = str;
+    dummy.select();
+
+    // alert(`you copied to clicpboard ${str}`);
+
+    ShowModal()
+    document.execCommand("copy");
+    
+    document.body.removeChild(dummy);
+}
+
+function ShowModal() {
+   let html = ""
+
+   html += `<div class="modal"><h2>Succesfully copied to clipBoard</h2></div>`
+
+//    document.querySelector("div").innerHTML = html;
+
+    setTimeout(function() {document.querySelector("div").innerHTML = ""},1000);
+
+    // 
+    document.querySelector("div").innerHTML = html;
+}
+
+
+
+
+
 
 
 

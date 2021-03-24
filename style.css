@@ -23,15 +23,6 @@ body {
 }
 
 main {
-  margin-top: 8rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-section {
-  margin-top: 8rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,7 +30,7 @@ section {
 }
 
 nav {
-  margin-top: 10rem;
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,7 +139,7 @@ span {
 
 .showTable {
   width: 61.85rem;
-  margin-top: -5rem;
+  /* margin-top: -5rem; */
   display: block;
   max-height: 74rem;
   overflow-y: scroll;
@@ -191,4 +182,15 @@ thead th {
   height: 4.5rem;
   font-size: 2rem;
   font-weight: 600;
+}
+
+.modal {
+  background-color: #5b60ff;
+  padding: 1.5rem;
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+  border-radius: 1rem;
+  border: 2px solid #f2f4f8;
+  transition: 0.2s ease all;
 }
