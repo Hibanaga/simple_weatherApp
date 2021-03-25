@@ -1,5 +1,8 @@
 let rowArr = new Array(3);
 let countClick = 0;
+let countWins_0 = 0;
+let countWins_X = 0;
+
 
 
 //creating a playing field
@@ -17,9 +20,12 @@ function createGame() {
             document.querySelector("#block_game").innerHTML = html;
         }
     }
+
+    countClick = 0
 }
 
 
+//main logic
 function Game () {
     document.querySelector("#block_game").addEventListener("click",function(e) {
         if (e.target.classList.contains("btn_click")) {
@@ -31,16 +37,21 @@ function Game () {
                 if (e.target.innerText === "") {
                     countClick++;
                     e.target.innerText = "0";
+
+                    if (check("0")) {
+                        createGame();
+                        document.querySelector("#wins_0").innerHTML = ++countWins_0;
+                    }
                 } else {
                     alert("you already input on button");
                 }
 
-                check("0")
+                
             } else if (countClick % 2 !== 0) {
                 let position = e.target.value;
                     let arr = position.split(" ");
                     rowArr[arr[0]][arr[1]] = "X"
-                    // console.log(rowArr)
+                    console.log(rowArr)
         
                     if (e.target.innerText === "") {
                         countClick++;
@@ -49,38 +60,41 @@ function Game () {
                         alert("you already input on button");
                     }
 
-                    check("X");
+                    if (check("X")) {
+                        createGame();
+                        document.querySelector("#wins_X").innerHTML = ++countWins_X;
+                    }
             }
         } 
     })  
 }
 
-function check(val) {
-    let count =0;
-    for (let i=0;i<rowArr.length;i++) {
-        for (let j=0;j<rowArr[i].length;j++) {
-            if (rowArr[0][j] === val || rowArr[1][j] === val || rowArr[i][0] === val || rowArr[2][j] === val || rowArr[i][1] === val || rowArr[i][2] === val) {
-                count++;  
-                // console.log(count);
-                if (count/3 == 3) {
-                    return alert(`You win ${val}`);
-                } 
-             
-            } else if (i==j && rowArr[i][j] === val) {
-                count++;  
 
-                if (count/3 == 3) {
-                    return alert(`You win ${val}`);
-                }
-            }
-        }
-    }
+function check(val) {
+    if ((rowArr[0][0] == val && rowArr[0][1] == val && rowArr[0][2] == val) 
+    || (rowArr[1][0] == val && rowArr[1][1] == val && rowArr[1][2] == val) 
+    || (rowArr[2][0] == val && rowArr[2][1] == val && rowArr[2][2] == val)
+
+    || (rowArr[0][0] == val && rowArr[1][0] == val && rowArr[2][0] == val)
+    || (rowArr[0][1] == val && rowArr[1][1] == val && rowArr[2][1] == val)
+    || (rowArr[0][2] == val && rowArr[1][2] == val && rowArr[2][2] == val)
+
+    || (rowArr[0][0] == val && rowArr[1][1] == val && rowArr[2][2] == val)
+    || (rowArr[0][2] == val && rowArr[1][1] == val && rowArr[2][0] == val)) {
+        return true;
+    } 
 }
+
+
 
 
 document.querySelector("#btn_startNewGame").onclick = ()=> {
     createGame();
     countClick = 0
+    countWins_0 = 0;
+    countWins_X = 0;
+    document.querySelector("#wins_0").innerHTML = 0;
+    document.querySelector("#wins_X").innerHTML = 0;
 }
 
 createGame();
