@@ -15,77 +15,55 @@ body {
   background-color: #333;
 }
 
-.mainInput {
-  display: block;
-  margin-top: 5rem;
-  margin-bottom: 2rem;
-  margin-left: 3.5rem;
-  margin-right: auto;
-  padding: 1rem;
-  background-color: rgb(131, 131, 131);
-  color: #2f2f2f;
-  font-size: 2.5rem;
-  min-width: 40rem;
-}
-
-.mainCalculator {
-  margin: 0 auto;
-  width: 28rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
 button {
-  margin: 0 auto;
-  text-align: center;
-  width: 8rem;
-  height: 4rem;
-  font-size: 2rem;
-  background-color: #666;
-
   outline: none;
-  border: 1px solid #bbb;
+  border: none;
   cursor: pointer;
 }
 
-.buttonsCalculator {
-  margin-left: 4rem;
-  width: 28rem;
+.btn_click {
+  margin: 1rem;
+  width: 5rem;
+  height: 5rem;
+  background-color: rgb(88, 105, 98);
+  border: 1rem solid rgb(182, 182, 182);
+  font-size: 2rem;
+  transition: 0.2s ease all;
 }
 
-.buttons_block {
+.btn_click:active {
+  border: 0.2rem solid rgb(182, 182, 182);
+}
+
+.block_game {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  width: 25rem;
+  /* justify-content: center;
+  align-items: center; */
+  margin: 8rem auto;
 }
 
-.btn_change {
-  width: 31rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.btn_value {
-  margin-top: 1rem;
-}
-
-.btn_value_zero {
+.btn_restart {
   display: block;
-  margin-left: 8.31rem;
+  /* width: 12rem; */
+  /* height: 4rem; */
+  /* margin: 2rem auto; */
+  position: sticky;
+  left: 45.8%;
+  top: 2rem;
+  justify-content: center;
+  align-items: center;
+  background: rgb(85, 85, 92);
+  border: 0.7rem solid rgb(167, 166, 166);
+  border-radius: 1rem;
+  font-size: 3rem;
+  padding: 1rem;
+  color: rgb(201, 200, 200);
+  transition: 0.2s ease;
 }
 
-.buttons_operations {
-  display: flex;
-  flex-direction: column;
-}
-
-.btn_operation {
-  margin-top: 1rem;
-  background-color: #bbb;
-  border: 1px solid #666;
-}
-
-.btn_operation:first-child {
-  margin-top: 0;
+.btn_restart:hover {
+  color: rgb(156, 156, 156);
+  background: rgb(211, 208, 208);
 }
