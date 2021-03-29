@@ -9,7 +9,7 @@ class weather {
         lastIndexIcon: "",
         weatherDescription:"",
         dateActual: ""
-    }
+    } 
 
     setAllInputData(name,code,temp,lastIndex,desc,date) {
         this._initialState.countryName = name,
