@@ -31,10 +31,6 @@ function showAllData(html) {
 }
 
 
-
-
-
-
 function addingIconsDay(iconCode) {
     let html = "";
     if (iconCode === "01d") {

@@ -17,7 +17,7 @@ $(".btn_search").on('click', ()=> {
 
 function getShowWeather(data) {
     let datatemp = "";
-    
+
     for (let key in data.main) {
         if (key === 'temp') {
             datatemp = Math.round(data.main[key]);
@@ -26,11 +26,9 @@ function getShowWeather(data) {
 
     weatherInfo.setAllInputData(data.name,data.sys.country,datatemp,data.weather[0].icon,data.weather[0].description,dateBuilder(new Date()));
 
-
+    
     presentInfo();
 }
-
-
 
 function dateBuilder(d)  {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
