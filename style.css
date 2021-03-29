@@ -94,6 +94,8 @@ html {
   cursor: pointer;
   border-bottom: 0.1rem solid #ffffff;
   color: #fff;
+
+  position: relative;
 }
 
 .btn_search {
@@ -110,4 +112,18 @@ html {
   border-radius: 1rem;
   cursor: pointer;
   outline: none;
+}
+
+.modal {
+  position: absolute;
+  top: 68%;
+  left: 4%;
+}
+
+.modal::first-letter {
+  text-transform: uppercase;
+}
+
+.block_input {
+  position: relative;
 }

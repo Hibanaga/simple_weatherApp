@@ -6,7 +6,11 @@ $(".btn_search").on('click', ()=> {
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${weatherInfo.getName()}&units=metric&appid=${weatherInfo.getAPIkey()}`)
         .then(res=> res.json())
         .then(data=> {
-            getShowWeather(data);
+            if (data.message === "city not found") {
+                getWrong(data);
+            } else {
+                getShowWeather(data);
+            }
         })
 })
 
@@ -27,7 +31,6 @@ function getShowWeather(data) {
         }
     }
 
-
     if (lastIndex.slice(-1) === "d") {
         html+= addingIconsDay(data.weather[0].icon);
     } else  {
@@ -39,6 +42,19 @@ function getShowWeather(data) {
     
    showAllData(html);
 }
+
+function getWrong(data) {
+    console.log(data.message);
+    let html = "";
+
+
+    html+= `<h2 class="modal">${data.message} 😩 </h2>`;
+    $(".block_input").append(html);
+
+    setTimeout(function (){ $(".modal").remove()},2000);
+}
+
+
 
 function addingIconsDay(iconCode) {
     let html = "";
@@ -76,9 +92,9 @@ function addingIconsNight (iconCode) {
     } else if (iconCode === "04n") {
         html+= ` <img class="weather_img" src="./images/04n@2x.png">`;
     } else if (iconCode === "09n") {
-        html+= ` <img class="" src="./images/09n@2x.png">`;
+        html+= ` <img class="weather_img"  src="./images/09n@2x.png">`;
     } else if (iconCode === "10n") {
-        html+= ` <img class="" src="./images/10n@2x.png">`;
+        html+= ` <img class="weather_img"  src="./images/10n@2x.png">`;
     } else if (iconCode === "11n") {
         html+= ` <img class="weather_img" src="./images/11n@2x.png">`;
     } else if (iconCode === "13n") {
