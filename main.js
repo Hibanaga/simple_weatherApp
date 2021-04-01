@@ -4,7 +4,7 @@ let weatherInfo = new weather();
 $(".btn_search").on('click', ()=> {
     let inputWeather = $(".inputweather").val();
     weatherInfo.setinputWeather(inputWeather);
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${weatherInfo.getName()}&units=metric&appid=${weatherInfo.getAPIkey()}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${weatherInfo.getName()}&units=metric&appid=${weatherInfo.getAPIkey()}`)
         .then(res=> res.json())
         .then(data=> {
             if (data.message === "city not found") {
