@@ -112,6 +112,12 @@ html {
   border-radius: 1rem;
   cursor: pointer;
   outline: none;
+  opacity: 0.8;
+
+  transition: 0.2s all ease;
+}
+.btn_search:hover {
+  opacity: 1;
 }
 
 .modal {
